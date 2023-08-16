@@ -4,8 +4,8 @@ hello/login/domain/item/SaveCheck.java
  hello.login.domain.item.SaveCheck
 hello/login/ItemServiceApplication.java
  hello.login.ItemServiceApplication
-hello/login/web/HomeController.java
- hello.login.web.HomeController
+hello/login/domain/item/UpdateCheck.java
+ hello.login.domain.item.UpdateCheck
 hello/login/TestDataInit.java
  hello.login.TestDataInit
 hello/login/web/item/form/ItemSaveForm.java
@@ -16,5 +16,5 @@ hello/login/domain/item/Item.java
  hello.login.domain.item.Item
 hello/login/web/item/ItemController.java
  hello.login.web.item.ItemController
-hello/login/domain/item/UpdateCheck.java
- hello.login.domain.item.UpdateCheck
+hello/login/web/HomeController.java
+ hello.login.web.HomeController
