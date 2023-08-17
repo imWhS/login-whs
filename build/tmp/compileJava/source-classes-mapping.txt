@@ -24,3 +24,9 @@ hello/login/domain/member/Member.java
  hello.login.domain.member.Member
 hello/login/TestDataInit.java
  hello.login.TestDataInit
+hello/login/web/member/LoginForm.java
+ hello.login.web.member.LoginForm
+hello/login/web/member/LoginController.java
+ hello.login.web.member.LoginController
+hello/login/domain/login/LoginService.java
+ hello.login.domain.login.LoginService
