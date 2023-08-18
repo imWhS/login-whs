@@ -16,8 +16,8 @@ hello/login/domain/item/Item.java
  hello.login.domain.item.Item
 hello/login/web/item/ItemController.java
  hello.login.web.item.ItemController
-hello/login/web/HomeController.java
- hello.login.web.HomeController
+hello/login/domain/login/LoginService.java
+ hello.login.domain.login.LoginService
 hello/login/domain/member/MemberRepository.java
  hello.login.domain.member.MemberRepository
 hello/login/domain/member/Member.java
@@ -28,5 +28,7 @@ hello/login/web/member/LoginForm.java
  hello.login.web.member.LoginForm
 hello/login/web/member/LoginController.java
  hello.login.web.member.LoginController
-hello/login/domain/login/LoginService.java
- hello.login.domain.login.LoginService
+hello/login/web/HomeController.java
+ hello.login.web.HomeController
+hello/login/web/session/SessionManager.java
+ hello.login.web.session.SessionManager
