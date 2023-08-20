@@ -12,6 +12,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -80,7 +81,7 @@ public class LoginController {
         return "redirect:/";
     }
 
-    @PostMapping("/login")
+//    @PostMapping("/login")
     public String loginV3(
             @Validated @ModelAttribute LoginForm form,
             BindingResult bindingResult,
@@ -103,6 +104,32 @@ public class LoginController {
         session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
 
         return "redirect:/";
+    }
+
+    @PostMapping("/login")
+    public String loginV4(
+            @Validated @ModelAttribute LoginForm form,
+            BindingResult bindingResult,
+            @RequestParam(defaultValue = "/") String redirectURL,
+            HttpServletRequest request
+    ) {
+        if (bindingResult.hasErrors()) {
+            return "login/loginForm";
+        }
+
+        Member loginMember = loginService.login(form.getLoginId(), form.getPassword());
+
+        //로그인 폼 필드로 입력받은 정보로 회원을 찾지 못한 경우: loginId, password와 같은 필드 오류가 아닌 글로벌 오류로 처리
+        if (loginMember == null) {
+            bindingResult.reject("loginFail", "아이디 또는 비밀 번호를 다시 확인해주세요.");
+            return "login/loginForm";
+        }
+
+        //로그인 성공 처리 - 세션 쿠키
+        HttpSession session = request.getSession(); //세션이 이미 존재하면 기존 세션 사용, 존재하지 않으면 세선 생성
+        session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
+
+        return "redirect:" + redirectURL;
     }
 
 //    @PostMapping("/logout")
